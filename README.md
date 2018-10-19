@@ -3,6 +3,3 @@
 
 ## Cómo compilar el código  
 `bash build`  
-
-## Cómo correr los tests  
-`bash ./test/test`  
