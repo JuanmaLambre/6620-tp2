@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <Cache.c>
-#include <Memory.c>
-#include <Command.c>
+#include "Cache.c"
+#include "Memory.c"
+#include "Command.c"
 
 
 char* read_line(FILE* input) {

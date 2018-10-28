@@ -1,7 +1,7 @@
 #ifndef MEMORY_C
 #define MEMORY_C
 
-#include <config.h>
+#include "config.h"
 
 #define BLOCKS_COUNT MEMORY_SIZE/BLOCK_SIZE
 

@@ -57,7 +57,8 @@ void Command_init(Command* self, char* cmdstr) {
 
 void Command_execute(Command* self, Cache* cache) {
     if (strcmp(self->op, "R") == 0) {
-        printf("Read %d\n", self->argv[0]);
+        // Fetch the data
+        Cache_read_block(cache, self->argv[0]);
     } else if (strcmp(self->op, "W") == 0) {
         printf("Write %d %d\n", self->argv[0], self->argv[1]);
     } else if (strcmp(self->op, "MR") == 0) {
