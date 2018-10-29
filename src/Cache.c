@@ -53,7 +53,7 @@ char* getIndex(char* binAddress) {
     for (i = 0; i < 4; i++) {
         index[i] = binAddress[6+i];
     }
-    index[6] = '\0';
+    index[4] = '\0';
     return index;
 }
 
