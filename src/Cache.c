@@ -89,7 +89,7 @@ int getIntFromBin(char* binary) {
 }
 
 
-void Cache_read_block(Cache* self, int blocknum) {
+char Cache_read_block(Cache* self, int blocknum) {
         char* binary = getBinary(blocknum);
         char* index = getIndex(binary);
         int indexDec = getIntFromBin(index);
@@ -98,4 +98,27 @@ void Cache_read_block(Cache* self, int blocknum) {
         char* offset = getOffset(binary);
         int offsetDec = getIntFromBin(offset);
         printf("Read %d Tag: %d Index: %d Offset: %d\n", blocknum, tagDec, indexDec, offsetDec);
+        
+        int found = 2359, i = 0;
+        Block block;
+        
+        while (found == 2359 && i < 4) {
+            block = self->blocks[i][indexDec];
+            if (block.tag == tagDec) {
+                found = 1;
+            }
+            i++;
+        }
+
+        if (found == 1) {
+            printf("Data found in cache: %d", block.data[offsetDec]);
+            return block.data[offsetDec];
+        } 
+
+        // if not found look in memory and update cache
+        free(tag);
+        free(offset);
+        free(index);
+        free(binary);
+        return "0";
 }
