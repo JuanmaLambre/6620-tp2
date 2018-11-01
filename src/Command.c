@@ -59,11 +59,10 @@ void Command_init(Command* self, char* cmdstr) {
 void Command_execute(Command* self) {
     if (strcmp(self->op, "R") == 0) {
         uchar value = read_byte(self->argv[0]);
-        //printf("Read %d: %d\n", self->argv[0], value);
         printf("%d\n", value);
     } else if (strcmp(self->op, "W") == 0) {
-        write_byte(self->argv[0], self->argv[1]);
-        //printf("Write %d, %d\n", self->argv[0], self->argv[1]);
+        int res = write_byte(self->argv[0], self->argv[1]);
+        printf("%d\n", res);
     } else if (strcmp(self->op, "MR") == 0) {
         printf("MissRate %d%%\n", get_miss_rate());
     } else {

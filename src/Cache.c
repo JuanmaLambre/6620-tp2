@@ -142,7 +142,7 @@ int write_byte(int address, char value) {
     block->data[offset] = value;
     block->bit_D = 1;
     Block_update_lru(&block);
-    return address; // WTF is the return value?
+    return (unsigned char) value;
 }
 
 int find_set(int addr) {

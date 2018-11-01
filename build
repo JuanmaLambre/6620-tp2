@@ -1,3 +1,5 @@
 #!/bin/bash
 
-gcc -w -g3 -I src/ -o cache src/main.c
+[[ $1 = debug ]] && DEBUG_FLAG='-g3'
+
+gcc -w $DEBUG_FLAG -I src/ -o cache src/main.c
