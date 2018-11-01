@@ -11,4 +11,9 @@ typedef struct {
 } Memory;
 
 
+void Memory_write_block(Memory *self, Block *src, int blockNo) {
+    Block *memblock = self->blocks + blockNo;
+    memcpy(memblock->data, src->data, BLOCK_SIZE);
+}
+
 #endif

@@ -52,19 +52,21 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    Memory memory;
-    Cache cache;
-    Cache_init(&cache, &memory);
+    init();
 
     // Get commands
     Command* commands;
     int cmd_count = 0;
     FILE* input = fopen(argv[1], "r");
+    if (0) {
+        fprintf(stderr, "Error opening file %s", argv[1]);
+        return 1;
+    }
     cmd_count = load_commands(input, &commands);
 
     // Execute commands
     for (int i = 0; i < cmd_count; ++i) {
-        Command_execute(commands+i, &cache);
+        Command_execute(commands+i);
     }
 
     for (int i = 0; i < cmd_count; ++i) {
