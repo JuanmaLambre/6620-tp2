@@ -58,8 +58,9 @@ void Command_init(Command* self, char* cmdstr) {
 
 void Command_execute(Command* self) {
     if (strcmp(self->op, "R") == 0) {
-        uchar value = read_byte(self->argv[0]);
-        printf("%d\n", value);
+        int value = read_byte(self->argv[0]);
+        if (value >= 0)
+            printf("%d\n", value);
     } else if (strcmp(self->op, "W") == 0) {
         int res = write_byte(self->argv[0], self->argv[1]);
         printf("%d\n", res);

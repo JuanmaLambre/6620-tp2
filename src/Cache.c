@@ -30,6 +30,7 @@ void init() {
             Block_init(&self.blocks[w][b]);
         }
     }
+    Memory_init(&self.memory);
 }
 
 int get_index(int addr) {

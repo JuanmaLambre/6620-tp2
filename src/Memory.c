@@ -11,6 +11,12 @@ typedef struct {
 } Memory;
 
 
+void Memory_init(Memory *self) {
+    for (int b = 0; b < BLOCKS_COUNT; ++b) {
+        Block_init(&self->blocks[b]);
+    }
+}
+
 void Memory_write_block(Memory *self, Block *src, int blockNo) {
     Block *memblock = self->blocks + blockNo;
     memcpy(memblock->data, src->data, BLOCK_SIZE);
