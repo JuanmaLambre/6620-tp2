@@ -10,7 +10,6 @@ typedef struct {
     char bit_D;
 } Block;
 
-
 void Block_init(Block *self) {
     self->last_used = 0;
     self->tag = -1;

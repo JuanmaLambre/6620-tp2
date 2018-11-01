@@ -5,11 +5,9 @@
 
 #define BLOCKS_COUNT MEMORY_SIZE/BLOCK_SIZE
 
-
 typedef struct {
     Block blocks[BLOCKS_COUNT];
 } Memory;
-
 
 void Memory_init(Memory *self) {
     for (int b = 0; b < BLOCKS_COUNT; ++b) {

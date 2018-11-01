@@ -7,7 +7,7 @@
 #define NO_BLOCKS (CACHE_SIZE/NO_WAYS/BLOCK_SIZE)
 #define INDEX_SIZE (log(NO_BLOCKS)/log(2))
 #define OFFSET_SIZE (log(BLOCK_SIZE)/log(2))
-#define TAG_SIZE (ADDR_SIZE-INDEX_SIZE-OFFSET_SIZE)
+#define TAG_SIZE ((int)(log(MEMORY_SIZE)/log(2))-INDEX_SIZE-OFFSET_SIZE)
 
 
 typedef unsigned char uchar;
